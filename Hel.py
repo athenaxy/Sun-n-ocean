@@ -6,9 +6,10 @@ print(ODDEL)
 print(uvod)
 print(ODDEL)
 
-registered = {"bob": "123", "ann": "pass123", "mike": "password123", "liz": "pass123"}
-registered_list = list(registered)
-
+registered = {"bob": "123",
+              "ann": "pass123",
+              "mike": "password123",
+              "liz": "pass123"}
 
 login = input("Please enter your login: ")
 pw = input("Please enter your password: ")
@@ -18,7 +19,7 @@ print("Password: ", pw)
 
 print(ODDEL)
 
-if login in registered_list:
+if login in registered:
     print(f"Welcome back, {login}")
 else:
     print("We didn't find you. Have you completed the registration already?")
@@ -60,56 +61,63 @@ garpike and stingray are also present.'''
 ]
 
 print(ODDELIT)
-text_choice = input("Which part of the text do you wish to analyze? Choose Part 1, 2 or 3: ")
-if text_choice == "1":
-    text = TEXTS[0]
-    print(" ")
-elif text_choice == "2":
-    text = TEXTS[1]
-    print(" ")
-elif text_choice == "3":
-    text = TEXTS[2]
-    print(" ")
+text_choice = int(input("Which part of the text do you wish to analyze? Choose Part 1, 2 or 3: "))
+
+selected_text = text_choice -1
+final_text = TEXTS[selected_text]
+print(final_text)
+
+# if text_choice == "1":
+#     text = TEXTS[0]
+#     print(" ")
+# elif text_choice == "2":
+#     text = TEXTS[1]
+#     print(" ")
+# elif text_choice == "3":
+#     text = TEXTS[2]
+#     print(" ")
 
 
 print(ODDELIT)
 
-podle_mezer = text.split()
+word_list = final_text.split()
 
 
-word_list = []
 word_list_title = []
 word_list_lower = []
 word_list_upper = []
 word_list_number =[]
 
-while podle_mezer:
-    word = podle_mezer.pop()
-    word_list.append(word)
-    # print(len(word_list))
 
 for i in word_list:
-    if i.istitle():
-        word_list_title.append(i)
-        TITLE = len(word_list_title)
-        # print(word_list_title)
-        # print(len(word_list_title))
-    else:
-        word_list_lower.append(i)
-        LOWER = len(word_list_lower)
-        # print(word_list_lower)
-        # print(len(word_list_lower))
 
-for a in word_list:
-    if a.isupper():
-        word_list_upper.append(a)
-    elif not a.isdigit():
+    if i.isupper():
+        word_list_upper.append(i)
         UPPER = len(word_list_upper)
 
-for b in word_list:
-    if b.isdigit():
-        word_list_number.append(b)
+    elif i.isdigit():
+        word_list_number.append(i)
         NUMBER = len(word_list_number)
+
+    elif i.istitle():
+        word_list_title.append(i)
+        TITLE = len(word_list_title)
+
+    elif i.islower():
+        word_list_lower.append(i)
+        LOWER = len(word_list_lower)
+
+
+  # for a in word_list:
+#     if a.isupper():
+#         word_list_upper.append(a)
+#     elif not a.isdigit():
+#         UPPER = len(word_list_upper)
+
+# for b in word_list:
+#     if b.isdigit():
+#         word_list_number.append(b)
+#         NUMBER = len(word_list_number)
 
 
 print(f"There are {len(word_list)} words in the chosen text.")
@@ -136,21 +144,3 @@ for lll in range(0, len(word_list_number)):
 print(ODDELIT)
 
 print(f"If we summed all the numbers in this text we would get: {sum(word_list_number)}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
