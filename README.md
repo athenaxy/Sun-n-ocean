@@ -1,2 +1,2 @@
 # Sun-n-ocean
-My description will come later
+Hi! My description will come later
