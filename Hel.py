@@ -61,7 +61,7 @@ garpike and stingray are also present.'''
 ]
 
 print(ODDELIT)
-text_choice = int(input("Select which part of the text do you wish to analyze: part 1, 2 or 3? "))
+text_choice = int(input("Select which part of the text do you wish to analyze: part 1, 2 or 3? ")) # ', '.join(map(str, range(1, len(l) + 1)))
 
 selected_text = text_choice -1
 final_text = TEXTS[selected_text]
