@@ -78,12 +78,14 @@ words_in_text_lower = []
 words_in_text_upper = []
 words_in_text_number =[]
 
+# delky_slov = {}
 
 for i in words_in_text:
+    # i = words_in_text.pop()
+    # delky_slov[len(i)] = delky_slov.get(len(i), 0) + 1
 
     if i.isupper():
         words_in_text_upper.append(i)
-
 
     elif i.isdigit():
         i = int(i)
