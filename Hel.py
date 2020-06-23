@@ -61,86 +61,59 @@ garpike and stingray are also present.'''
 ]
 
 print(ODDELIT)
-text_choice = int(input("Which part of the text do you wish to analyze? Choose Part 1, 2 or 3: "))
+text_choice = int(input("Select which part of the text do you wish to analyze: part 1, 2 or 3? "))
 
 selected_text = text_choice -1
 final_text = TEXTS[selected_text]
 print(final_text)
 
-# if text_choice == "1":
-#     text = TEXTS[0]
-#     print(" ")
-# elif text_choice == "2":
-#     text = TEXTS[1]
-#     print(" ")
-# elif text_choice == "3":
-#     text = TEXTS[2]
-#     print(" ")
-
-
 print(ODDELIT)
 
-word_list = final_text.split()
+ocistena_slova = final_text.strip(".,:!?;-_")
+words_in_text = ocistena_slova.split()
 
 
-word_list_title = []
-word_list_lower = []
-word_list_upper = []
-word_list_number =[]
+words_in_text_title = []
+words_in_text_lower = []
+words_in_text_upper = []
+words_in_text_number =[]
 
 
-for i in word_list:
+for i in words_in_text:
 
     if i.isupper():
-        word_list_upper.append(i)
-        UPPER = len(word_list_upper)
+        words_in_text_upper.append(i)
+
 
     elif i.isdigit():
-        word_list_number.append(i)
-        NUMBER = len(word_list_number)
+        i = int(i)
+        words_in_text_number.append(i)
 
     elif i.istitle():
-        word_list_title.append(i)
-        TITLE = len(word_list_title)
+        words_in_text_title.append(i)
 
     elif i.islower():
-        word_list_lower.append(i)
-        LOWER = len(word_list_lower)
+        words_in_text_lower.append(i)
 
 
-  # for a in word_list:
-#     if a.isupper():
-#         word_list_upper.append(a)
-#     elif not a.isdigit():
-#         UPPER = len(word_list_upper)
-
-# for b in word_list:
-#     if b.isdigit():
-#         word_list_number.append(b)
-#         NUMBER = len(word_list_number)
-
-
-print(f"There are {len(word_list)} words in the chosen text.")
-print(f"There are {TITLE} titlecase words in the chosen text.")
-print(f"There are {UPPER} uppercase words in the chosen text.")
-print(f"There are {LOWER} lowercase words in the chosen text.")
-print(f"There are {NUMBER} numbers in the chosen text.")
+print(f"There are {len(words_in_text)} words in the chosen text.")
+print(f"There are {len(words_in_text_title)} titlecase words in the chosen text.")
+print(f"There are {len(words_in_text_upper)} uppercase words in the chosen text.")
+print(f"There are {len(words_in_text_lower)} lowercase words in the chosen text.")
+print(f"There are {len(words_in_text_number)} numbers in the chosen text.")
 
 print(ODDELIT)
 
 delky_slov = {}
-while word_list:
-    slovo = word_list.pop()
+while words_in_text:
+    slovo = words_in_text.pop()
     delky_slov[len(slovo)] = delky_slov.get(len(slovo), 0) +1
 
 
 for klic, hodnota in delky_slov.items():
-    print(hodnota, "*" * klic, klic)
+    print(klic, "*" * hodnota, hodnota)
 
 
-
-for lll in range(0, len(word_list_number)):
-    word_list_number[lll] = int(word_list_number[lll])
 print(ODDELIT)
 
-print(f"If we summed all the numbers in this text we would get: {sum(word_list_number)}")
+print(f"If we summed all the numbers in this text we would get: {sum(words_in_text_number)}")
