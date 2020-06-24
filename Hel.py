@@ -61,7 +61,7 @@ garpike and stingray are also present.'''
 ]
 
 print(ODDELIT)
-text_choice = int(input("Select which part of the text do you wish to analyze: part 1, 2 or 3? ")) # ', '.join(map(str, range(1, len(l) + 1)))
+text_choice = int(input("Select which part of the text do you wish to analyze: ")) # ', '.join(map(str, range(1, len(l) + 1)))
 
 selected_text = text_choice -1
 final_text = TEXTS[selected_text]
@@ -78,11 +78,10 @@ words_in_text_lower = []
 words_in_text_upper = []
 words_in_text_number =[]
 
-# delky_slov = {}
+delky_slov = {}
 
 for i in words_in_text:
-    # i = words_in_text.pop()
-    # delky_slov[len(i)] = delky_slov.get(len(i), 0) + 1
+    delky_slov[len(i)] = delky_slov.get(len(i), 0) + 1
 
     if i.isupper():
         words_in_text_upper.append(i)
@@ -106,15 +105,13 @@ print(f"There are {len(words_in_text_number)} numbers in the chosen text.")
 
 print(ODDELIT)
 
-delky_slov = {}
-while words_in_text:
-    slovo = words_in_text.pop()
-    delky_slov[len(slovo)] = delky_slov.get(len(slovo), 0) +1
-
+# delky_slov = {}
+# while words_in_text:
+#     slovo = words_in_text.pop()
+# delky_slov[len(i)] = delky_slov.get(len(i), 0) +1
 
 for klic, hodnota in delky_slov.items():
     print(klic, "*" * hodnota, hodnota)
-
 
 print(ODDELIT)
 
