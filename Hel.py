@@ -110,8 +110,9 @@ print(ODDELIT)
 #     slovo = words_in_text.pop()
 # delky_slov[len(i)] = delky_slov.get(len(i), 0) +1
 
-for klic, hodnota in delky_slov.items():
+for klic, hodnota in sorted(delky_slov.items()):
     print(klic, "*" * hodnota, hodnota)
+    print()
 
 print(ODDELIT)
 
