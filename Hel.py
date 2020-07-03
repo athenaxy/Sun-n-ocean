@@ -69,9 +69,10 @@ print(final_text)
 
 print(ODDELIT)
 
-ocistena_slova = final_text.strip(".,:!?;-_")
-words_in_text = ocistena_slova.split()
-
+words_in_text = []
+jednotliva_slova = final_text.split()
+for slovo in jednotliva_slova:
+    words_in_text.append(slovo.strip(".,"))
 
 words_in_text_title = []
 words_in_text_lower = []
@@ -81,7 +82,8 @@ words_in_text_number =[]
 delky_slov = {}
 
 for i in words_in_text:
-    delky_slov[len(i)] = delky_slov.get(len(i), 0) + 1
+    delky_slov[len(i)] = delky_slov.get(len(i), 0) +1
+
 
     if i.isupper():
         words_in_text_upper.append(i)
@@ -105,14 +107,8 @@ print(f"There are {len(words_in_text_number)} numbers in the chosen text.")
 
 print(ODDELIT)
 
-# delky_slov = {}
-# while words_in_text:
-#     slovo = words_in_text.pop()
-# delky_slov[len(i)] = delky_slov.get(len(i), 0) +1
-
 for klic, hodnota in sorted(delky_slov.items()):
     print(klic, "*" * hodnota, hodnota)
-    print()
 
 print(ODDELIT)
 
